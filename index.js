@@ -12,12 +12,12 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 // const dbConnect = "mongodb://localhost:27017/hive";
 const dbConnect = process.env.MONGODB_URI ||
-  'mongodb+srv://saaket777:<mongodb123>@cluster0-ogtyx.mongodb.net/pocketsup?retryWrites=true&w=majority'
+  'mongodb+srv://saaket777:mongodb123@cluster0-ogtyx.mongodb.net/pocketsup?retryWrites=true&w=majority'
 
 // Database connection
 const startDb = async () => {
   try {
-    await mongoose.connect(dbConnect, { useNewUrlParser: true });
+    await mongoose.connect(dbConnect, { useNewUrlParser: true, useUnifiedTopology: true });
     console.log("connected to db");
   } catch (e) {
     console.log(e.message);

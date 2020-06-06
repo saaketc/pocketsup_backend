@@ -11,7 +11,8 @@ const searchRoute = require("./routes/search");
 const app = express();
 const PORT = process.env.PORT || 5000;
 // const dbConnect = "mongodb://localhost:27017/hive";
-const dbConnect = 'mongodb+srv://saaket777:<mongodb123>@cluster0-ogtyx.mongodb.net/pocketsup?retryWrites=true&w=majority'
+const dbConnect = process.env.MONGODB_URI ||
+  'mongodb+srv://saaket777:<mongodb123>@cluster0-ogtyx.mongodb.net/pocketsup?retryWrites=true&w=majority'
 
 // Database connection
 const startDb = async () => {

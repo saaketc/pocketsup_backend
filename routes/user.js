@@ -17,17 +17,22 @@ router.get("/campaigns", auth, async (req, res) => {
 router.get("/portfolio", auth, async (req, res) => {
   try {
     let funding = await Funding.find({ fundingUserId: req.user._id });
-    const portfolio = [];
+    // let portfolio = []
     console.log(funding);
 
-    funding.map(async (f) => {
-      let camp = await Campaign.findById(f.campaignId);
-      camp.fundingAmount = f.amount;
-      portfolio.push(camp);
-    });
-    res.status(200).send(portfolio);
+    //  funding.map(async (f) => {
+    //   let camp = await Campaign.findById(f.campaignId);
+    //  camp.fundingAmount = f.amount;
+    //  console.log('Camp', camp);
+    //    portfolio.push(camp);
+    //    console.log('portfolio', portfolio);
+    //  });
+    
+    // console.log('Portfolio outside');
+    
+    return res.status(200).send(funding);
   } catch (e) {
-    res.status(500).send(e.message);
+    return res.status(500).send(e.message);
   }
 });
 

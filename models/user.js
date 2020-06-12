@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
 // set key using config & env variable 
 
 userSchema.methods.generateToken = function () {
-  const token = jwt.sign({ _id: this._id, firstName: this.firstName, lastName: this.lastName }, "jwtKeyForHive");
+  const token = jwt.sign({ _id: this._id, firstName: this.firstName, lastName: this.lastName, moderator: this.moderator}, "jwtKeyForHive");
   return token;
 }    
 const User = mongoose.model("User", userSchema);

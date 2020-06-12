@@ -71,22 +71,9 @@ router.get("/", async (req, res) => {
       },
     })
       .sort({ startDate: -1 });
-    //   const failedCampaigns = [];
-    // const today = new Date();
-    // allCampaigns.map(async (campaign) => {
-    //   if (new Date(campaign.endDate) >= today) {
-    //     if (campaign.fundRaised >= campaign.goalAmount) {
-    //       campaign.status = "funded";
-    //     } else {
-    //         campaign.status = 'failed';
-    //         failedCampaigns.push(campaign);
-    //       }
-    //       await campaign.save();
-    //     }
-    //     if (failedCampaigns.length > 0) {
-            
-    //     }
-    // });
+    
+    allCampaigns = allCampaigns.filter(campaign => new Date().getTime() <= new Date(campaign.endDate).getTime())
+    
     res.status(200).send(allCampaigns);
   } catch (e) {
     res.status(500).send(e.message);

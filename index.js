@@ -7,6 +7,7 @@ const authRoute = require("./routes/auth");
 const campaignRoute = require("./routes/campaign");
 const userRoute = require("./routes/user");
 const searchRoute = require("./routes/search");
+const moderatorRoute = require("./routes/moderator");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -33,5 +34,6 @@ app.use("/api/auth", authRoute);
 app.use("/api/campaign", campaignRoute);
 app.use("/api/user", userRoute);
 app.use("/api/search", searchRoute);
+app.use("/api/moderator", moderatorRoute);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

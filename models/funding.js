@@ -5,6 +5,7 @@ const fundingSchema = new mongoose.Schema({
   campaignId: { type: mongoose.Schema.Types.ObjectId },
   amount: { type: Number, default: 0 },
   date: { type: Date, default: new Date().toUTCString() },
+  status: { type: String, default: 'pending'}
 });
 
 const Funding = mongoose.model("Funding", fundingSchema);
